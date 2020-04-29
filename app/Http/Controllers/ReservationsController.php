@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
@@ -11,7 +12,13 @@ class ReservationsController extends Controller
     }
 
     public function getCreate() {
-        return view('reservations.edit');
+
+        $rooms = Room::get();
+
+
+        return view('reservations.edit', [
+            'rooms' => $rooms
+        ]);
     }
 
     public function getEdit($id) {

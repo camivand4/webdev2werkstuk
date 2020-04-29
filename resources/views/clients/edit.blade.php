@@ -8,43 +8,56 @@
         @csrf
         <div class="medium-4  columns">
           <label>Titel</label>
-          <select name="form[title]">
+          <select name="title">
             <option value="mr" selected="selected">Mr.</option>
-            <option value="ms">Mw.</option>
-            <option value="mrs">Juf.</option>
+            <option value="mw">Mw.</option>
+            <option value="juf">Juf.</option>
             <option value="dr">Dr.</option>
           </select>
         </div>
         <div class="medium-4  columns">
           <label>Voornaam</label>
-          <input name="form[name]" type="text">
+          <input name="firstname" type="text">
         </div>
         <div class="medium-4  columns">
           <label>Achternaam</label>
-          <input name="form[lastName]" type="text">
+          <input name="lastname" type="text">
         </div>
         <div class="medium-8  columns">
           <label>Adres</label>
-          <input name="form[address]" type="text">
+          <input name="address" type="text">
         </div>
         <div class="medium-4  columns">
           <label>Postcode</label>
-          <input name="form[zipCode]" type="text">
+          <input name="postal_code" type="text">
         </div>
         <div class="medium-4  columns">
           <label>Stad</label>
-          <input name="form[city]" type="text">
+          <input name="city" type="text">
         </div>
         <div class="medium-4  columns">
           <label>Provincie</label>
-          <input name="form[provincie]" type="text">
+          <input name="province" type="text">
         </div>
         <div class="medium-12  columns">
           <label>E-mail</label>
-          <input name="form[email]" type="text">
+          <input name="email" type="text">
         </div>
         <div class="medium-12  columns">
           <input value="BEWAAR" class="button success hollow" type="submit">
+        </div>
+        <div class="medium-12 columns">
+            @if($errors->any())
+            <div class="callout error">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>
+                        {{ $error }}
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
       </form>
     </div>
