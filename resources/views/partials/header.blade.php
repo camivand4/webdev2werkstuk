@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <meta class="foundation-mq">
+    @yield('inline-styles')
 </head>
 
 <body>
@@ -22,6 +23,19 @@
                     <li role="menuitem"><a href="{{ route('clients') }}">Klanten</a></li>
                     <li role="menuitem"><a href="{{ route('reservations') }}">Reservaties</a></li>
                 </ul>
+            </div>
+            <div class="top-bar-right" style="float:right">
+
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                 {{ __('Logout') }}
+             </a>
+
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+             </form>
+
             </div>
         </div>
     </div>
