@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Page;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -19,14 +19,17 @@ class TestController extends Controller
     }
 
     public function privacy() {
-        $title = 'Privacy';
-        $image = 'images/overdrop.png';
-        $message = 'Niet de maker van overdrop';
+        $pages = Page::get();
 
-        return view('pages.test', [
-            'title' => $title,
+        // $title = 'Privacy';
+        $image = 'images/overdrop.png';
+        // $message = 'Niet de maker van overdrop';
+
+        return view('pages.privacy', [
+            // 'title' => $title,
             'image' => $image,
-            'message' => $message
+            // 'message' => $message,
+            'pages' => $pages,
         ]);
     }
 
