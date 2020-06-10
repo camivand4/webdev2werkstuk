@@ -1,8 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 
 
 @section('featured')
-    Bekend van TV
+    <p><a href="test2">testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></p>
 @endsection
 
 
@@ -12,7 +12,7 @@
         <h4>{{ $title }}</h4>
     </div>
     <div class="medium-6 columns">
-        <img class="thumbnail" src="{{ asset($image) }}">
+        {{-- <img class="thumbnail" src="{{ asset($image) }}"> --}}
     </div>
     <div class="medium-6 large-5 columns">
         {!! $content !!}
