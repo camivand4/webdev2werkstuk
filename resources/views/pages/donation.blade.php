@@ -18,12 +18,11 @@
     <br><br><br>
   <ul class="gap">
     <li><a href="/">Home</a></li>
-    {{-- <li><a href="test">Test</a></li> --}}
-    <li><a href="test2">Test2</a></li>
-    {{-- <li><a href="test3">Test3</a></li> --}}
+    <li><a href="about">About</a></li>
     <li><a href="contact">Contact</a></li>
     <li><a href="mailchimp">Mailchimp</a></li>
     <li><a href="donation">Donation</a></li>
+    <li><a href="privacy">Privacy</a></li>
 
   </ul>
    <ul class="navbar-nav ml-auto logout">
@@ -85,7 +84,7 @@
             <div class="plusminbuttons plus" onclick="plus()">+</div>
         </div>
         <div>
-            <div class="donate ">Donate</div>
+            <a class="donate" href="{{ route('makePayment')}}">Donate</a>
         </div>
     </div>
 @endsection
