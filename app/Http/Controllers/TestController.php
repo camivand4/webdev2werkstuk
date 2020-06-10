@@ -33,6 +33,10 @@ class TestController extends Controller
         ]);
     }
 
+    public function detailpagina() {
+        return view('pages.detailpagina');
+    }
+
     public function subscribed() {
         $title = 'Hoera';
         $image = 'images/overdrop.png';

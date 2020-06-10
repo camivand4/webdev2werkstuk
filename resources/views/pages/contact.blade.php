@@ -23,7 +23,7 @@
     <li><a href="mailchimp">Mailchimp</a></li>
     <li><a href="donation">Donation</a></li>
     <li><a href="privacy">Privacy</a></li>
-
+    <li><a href="detailpagina">Detailpagina</a></li>
 
   </ul>
    <ul class="navbar-nav ml-auto logout">

@@ -30,5 +30,9 @@ Route::get('about', 'TestController@about')->name('about');
 Route::get('privacy', 'TestController@privacy')->name('privacy');
 Route::get('subscribed', 'TestController@subscribed')->name('subscribed');
 
+// Route::get('overzichtspagina', '1Controller@overzichtspagina')->name('overzichtspagina');
+Route::get('detailpagina', 'TestController@detailpagina')->name('detailpagina');
+// Route::get('1', '1Controller@1')->name('1');
+
 Auth::routes();
 

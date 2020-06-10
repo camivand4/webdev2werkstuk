@@ -1,3 +1,4 @@
+
 @yield('head')
 @yield('navbar')
 @yield('testing')
