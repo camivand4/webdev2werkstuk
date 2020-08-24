@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 use App\Page;
 use Illuminate\Http\Request;
 
+
 class PagesController extends Controller
 {
     public function about() {
-        $title = 'About';
-        $image = 'images/overdrop.png';
-        $message = 'link to overdrop https://play.google.com/store/apps/details?id=widget.dd.com.overdrop.free&hl=en';
+        $langueEnglish = true;
+
+        if($langueEnglish == true) {
+            $title = 'About';
+            $image = 'images/overdrop.png';
+            $message = 'link to overdrop https://play.google.com/store/apps/details?id=widget.dd.com.overdrop.free&hl=en';
+        } else {
+            $title = 'Over';
+            $image = 'images/overdrop.png';
+            $message = 'link naar overdrop https://play.google.com/store/apps/details?id=widget.dd.com.overdrop.free&hl=en';
+        }
 
         return view('pages.pagina', [
             'title' => $title,

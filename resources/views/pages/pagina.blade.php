@@ -1,7 +1,7 @@
 @extends('layout3')
 
 @section('title')
-    Mailchimp
+    {{$title}}
 @endsection
 
 @section('content')

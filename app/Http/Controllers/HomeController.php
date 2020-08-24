@@ -33,7 +33,7 @@ class HomeController extends Controller
         $message = 'Overdrop is an awesome app to see the weather.
         Camille Van Damme';
 
-        return view('pages.test', [
+        return view('pages.pagina', [
             'title' => $title,
             'image' => $image,
             'message' => $message
