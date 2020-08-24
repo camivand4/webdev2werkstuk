@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 use App\Page;
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+class PagesController extends Controller
 {
     public function about() {
         $title = 'About';
         $image = 'images/overdrop.png';
         $message = 'link to overdrop https://play.google.com/store/apps/details?id=widget.dd.com.overdrop.free&hl=en';
 
-        return view('pages.test', [
+        return view('pages.pagina', [
             'title' => $title,
             'image' => $image,
             'message' => $message
@@ -21,14 +21,10 @@ class TestController extends Controller
     public function privacy() {
         $pages = Page::get();
 
-        // $title = 'Privacy';
         $image = 'images/overdrop.png';
-        // $message = 'Niet de maker van overdrop';
 
         return view('pages.privacy', [
-            // 'title' => $title,
             'image' => $image,
-            // 'message' => $message,
             'pages' => $pages,
         ]);
     }
@@ -42,7 +38,7 @@ class TestController extends Controller
         $image = 'images/overdrop.png';
         $message = "You've been subscribed!!!";
 
-        return view('pages.test', [
+        return view('pages.pagina', [
             'title' => $title,
             'image' => $image,
             'message' => $message

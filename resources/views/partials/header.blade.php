@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html data-whatinput="keyboard" data-whatintent="keyboard" class=" whatinput-types-initial whatinput-types-keyboard">
-
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <title>Chateau Meiland</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <meta class="foundation-mq">
-    @yield('inline-styles')
+    <title>{{$pages[0]->title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
+    <nav role='navigation' id="mainnav">
+    <br><br><br>
+  <ul class="gap">
+    <li><a href="/">Home</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="mailchimp">Mailchimp</a></li>
+    <li><a href="donation">Donation</a></li>
+    <li><a href="privacy">Privacy</a></li>
+    <li><a href="detailpagina">Detailpagina</a></li>
 
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-        <div class="row">
-            <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu="tckp8q-dropdown-menu" role="menubar">
-                    <li role="menuitem"><a href="{{ route('home') }}">Home</a></li>
-                    <li role="menuitem"><a href="{{ route('clients') }}">Klanten</a></li>
-                    <li role="menuitem"><a href="{{ route('reservations') }}">Reservaties</a></li>
-                </ul>
-            </div>
-            <div class="top-bar-right" style="float:right">
+  </ul>
+   <ul class="navbar-nav ml-auto logout">
+        <!-- Authentication Links -->
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+        @else
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
 
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                 {{ __('Logout') }}
-             </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
 
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                 @csrf
-             </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+        @endguest
+    </ul>
+</nav>
 
-            </div>
-        </div>
-    </div>
-    <!-- End Top Bar -->
+<div class="hamb">
+  <a href="#"><i class="fa fa-bars"></i></a>
+</div>
 
-    <br>
+<canvas id="bubble"></canvas>

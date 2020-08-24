@@ -21,18 +21,31 @@ Route::post('mailchimp', 'NewsLetterController@postmailchimp')->name('mailchimp.
 Route::get('donation', 'ShopController@donation')->name('donation');
 Route::get('betalen', 'ShopController@getMakePayment')->name('makePayment');
 Route::get('succes', 'ShopController@getSuccess')->name('paymentSucces');
-Route::name('webhooks.mollie')->post('webhooks/mollie', 'WebHookController@handle')->name('mollie');
+Route::post('webhooks/mollie', 'WebHookController@handle')->name('webhooks.mollie');
 
 Route::get('/contact', 'MailController@getContact')->name('contact');
 Route::post('/contact', 'MailController@postContact')->name('contact.save');
 
-Route::get('about', 'TestController@about')->name('about');
-Route::get('privacy', 'TestController@privacy')->name('privacy');
-Route::get('subscribed', 'TestController@subscribed')->name('subscribed');
+Route::get('about', 'PagesController@about')->name('about');
+Route::get('privacy', 'PagesController@privacy')->name('privacy');
+Route::get('subscribed', 'PagesController@subscribed')->name('subscribed');
 
-// Route::get('overzichtspagina', '1Controller@overzichtspagina')->name('overzichtspagina');
-Route::get('detailpagina', 'TestController@detailpagina')->name('detailpagina');
-// Route::get('1', '1Controller@1')->name('1');
+Route::get('detailpagina', 'PagesController@detailpagina')->name('detailpagina');
+
+Route::prefix('dashboard')->as('dashboard.')->group(function(){
+    Route::group(['middleware'=> ['verified']], function() {
+        Route::get('/olliebollies', 'DashboardController@getIndexOlliebollies')->name('olliebollies.index');
+
+        Route::get('/olliebollies/create', 'DashboardController@getCreateOlliebollie')->name('olliebollies.create');
+        Route::post('/olliebollies/create', 'DashboardController@postCreateOlliebollie')->name('olliebollies.create.post');
+
+        Route::get('/olliebollies/edit/{olliebollie}', 'DashboardController@getEditOlliebollie')->name('olliebollies.edit');
+        Route::post('/olliebollies/edit/{olliebollie}', 'DashboardController@postEditOlliebollie')->name('olliebollies.edit.post');
+
+        Route::post('/olliebollies/delete', 'DashboardController@postDeleteOlliebollie')->name('olliebollies.delete');
+    });
+});
+
+// Route::get('/{slug}', 'OlliebollieController@getOlliebollie')->name('olliebollie');
 
 Auth::routes();
-

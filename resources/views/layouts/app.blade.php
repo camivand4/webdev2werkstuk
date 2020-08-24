@@ -10,7 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    @yield('scripts');
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

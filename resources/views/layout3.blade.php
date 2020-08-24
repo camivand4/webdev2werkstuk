@@ -1,18 +1,16 @@
-@extends('layout2')
-
-@section('head')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{$title}}</title>
+    <title>
+        @section('title')
+        @show
+    </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-@endsection
 
-@section('navbar')
 <body>
     <nav role='navigation' id="mainnav">
     <br><br><br>
@@ -64,26 +62,12 @@
 </div>
 
 <canvas id="bubble"></canvas>
-@endsection
 
-@section('content')
-    <div class="content">
-        <div class="image">
-            <img class="actualimage" src="{{$image}}">
-        </div>
-        <div class="title">
-            {{$title}}
-        </div>
-        <div class="message">
-            {{$message}}
-        </div>
-    </div>
-@endsection
+ {{-- here --}}
+ @section('content')
+ @show
 
-
-@section('end')
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
 <script src="{{asset("js/script.js")}}"></script>
 </body>
-@endsection
